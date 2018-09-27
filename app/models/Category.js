@@ -63,3 +63,21 @@ exports.getList = function(callback) {
    return callback(err,result);
  })
 }
+exports.getCat = function(slug,callback) {  
+  let err,result;
+  Category.find({
+    where:{slug: slug},
+    order:[['id','ASC']],
+    limit:1
+  }).then(function (result) {
+    if(result){
+     return callback(err,result);
+   }else{
+    return callback('notitem',null);
+  }
+}).catch(function (err){
+  console.log(err);
+  err = 'Có lỗi trong quá trình đăng ký hãy thử lại!';
+  return callback(err,result);
+})
+}

@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="blockhome">
+	<h1 class="titleh2">{{title}}</h1>
+	{% for item in data %}
+	<div class="row itemnew">
+		<div class="col-sm-4 col-md-3">
+			<div class="thumbnail">
+				<a href="/{{item.alias}}.html"><img src="./data/news/{{item.image}}" class="img-fluid" alt="{{item.titleclear}}">
+			</div>
+		</div>  
+		<div class="col-sm-8 col-md-9">
+			<div class="title">
+				<h3><a href="/{{item.alias}}.html">{{item.title}}</a></h3>
+				<p>{{ cutString(item.description,500) }}</p>
+				<a href="/{{item.alias}}.html" class="btn btn-success" ><i class="fab fa-readme"></i> Readmore</a>
+			</div>     
+		</div>
+	</div>
+	{% endfor %}
+</div>
+<div class="clearfix"></div>
+{% endblock %}

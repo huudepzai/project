@@ -1,0 +1,20 @@
+<div class="card">
+  <h5 class="card-header">About Me</h5>
+  <div class="card-body">
+    <p>Tên: Hữu Đẹp Zai</p>
+    <p>Quê quán: Nam Định</p>
+    <p>Nghề nghiệp: Kinh doanh online</p>
+     <p>Email: dinhhuugt@gmail.com</p>
+  </div>
+</div>
+
+<div class="card" style="margin-top:10px">
+  <h5 class="card-header">Bài viết mới</h5>
+  <div class="card-body">
+    <ul>
+        {% for item in newPost %}
+            <li><h3><a>{{item.tile}}</a></h3></li>
+        {% endfor %}
+    </ul>
+  </div>
+</div>

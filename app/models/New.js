@@ -84,3 +84,44 @@ exports.getList = function(callback) {
    return callback(err,result);
  })
 }
+
+exports.getListFromCat = function(catid,callback) {  
+  let err,result;
+  New.findAll({
+    where:{type:'post',category_id:catid},
+    order:[['id','DESC']],
+    limit: 10
+  }).then(function (result) {
+   return callback(err,result);
+ }).catch(function (err){
+   err = 'Có lỗi trong quá trình đăng ký hãy thử lại!';
+   return callback(err,result);
+ })
+}
+
+exports.geNewList = function(callback) {  
+  let err,result;
+  New.findAll({
+    where:{type:'post'},
+    order:[['id','DESC']],
+    limit: 5
+  }).then(function (result) {
+   return callback(err,result);
+ }).catch(function (err){
+   err = 'Có lỗi trong quá trình đăng ký hãy thử lại!';
+   return callback(err,result);
+ })
+}
+
+exports.getDetail = function(slug,callback) {  
+  let err,result;
+  New.find({
+    where:{type:'post',alias:slug},
+    limit: 1
+  }).then(function (result) {
+   return callback(err,result);
+ }).catch(function (err){
+   err = 'Có lỗi trong quá trình đăng ký hãy thử lại!';
+   return callback(err,result);
+ })
+}
