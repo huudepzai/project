@@ -1,0 +1,42 @@
+$color: #337ab7 !important;
+$bgwhite: #fff;
+$bodercolor: #ececec;
+$padding10: 10px;
+body{
+    background: #f8f9fa!important;
+}
+.container{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.bg-color{
+    background-color: $color;
+}
+.blockhome{
+    background: $bgwhite;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    border:1px solid $bodercolor;
+    padding: $padding10;
+}
+.title{
+    padding: 10px 0px;
+    border-bottom: 1px solid $bodercolor;
+    h3{
+        font-size: 14px;
+        color: $color;
+        a{
+            color: $color;
+        }
+        a:hover{
+            color:red;
+        }
+    }
+}
+.navbar-light .navbar-nav .nav-link{
+    color: #fff;
+    font-size: 14px;
+}
+.navbar-light .navbar-nav .nav-link:hover{
+    color: red;
+}

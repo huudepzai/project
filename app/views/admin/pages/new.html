@@ -1,0 +1,58 @@
+{% extends "admin/pages/layout.html" %}
+{% block content %}
+<section class="content">
+	<form name="category_form" id="category_form" method="post"  enctype="multipart/form-data" >
+		<div class="box">
+			<div class="box-body" id="button_task"> 
+				<div class="pull-right">
+					<a class="btn btn-app" href="javascript:void(0)" onclick="document.forms['category_form'].submit(); return false;" data-script="" data-field="">	
+						<i class="fa fa-database"></i> Lưu </a>
+					</div><!--end: .pull-right-->
+				</div><!--end: .box-body-->
+			</div><!--end: .box--><!-- HEAD -->
+			<div class="box box-default">	
+				<div class="box-header with-border">
+					<h3 class="box-title">Thêm mới</h3>
+				</div>	
+				<div class="box-body">
+					<div class="form-group">	
+						<label>Tiêu đề:</label>
+						<input name="title" autocomplete="off" id="title" type="text" class="form-control " value="" placeholder="">
+						<div class="error" id="login_user_error" style="color:#ff0000"></div>
+					</div>
+					<div class="form-group">	
+						<label>Hình ảnh:</label>
+						<input type="file" name="newpicture" />
+					</div>
+					<div class="form-group">	
+						<select class="form-control select2 select2-hidden-accessible" name="category" id="category" tabindex="-1" aria-hidden="true">
+							<option value="0">Chọn danh mục</option>
+							{% asyncAll item in category %}
+							<option value={{ item.id }}>{{ item.name }}</option>
+							{% asyncAll itemsub in item.sub %}
+							<option value={{ itemsub.id }}>--{{ itemsub.name }}</option>
+							{% asyncAll itemsub2 in itemsub.sub %}
+							<option value={{ itemsub2.id }}>----{{ itemsub2.name }}</option>
+							{% endall %}
+							{% endall %}
+							{% endall %}
+						</select>
+					</div> <!-- End .form-group -->
+					<div class="form-group">
+						<label>Tóm tắt:</label>
+						<textarea name="teaser" class="form-control" id="" cols="30" rows="10"></textarea>
+					</div>
+					<div class="form-group">
+						<label>Chi tiết:</label>
+						<textarea name="description" class="form-control" id="editor" cols="30" rows="10"></textarea>
+					</div>
+					<div class="form-group">
+						<label>Keyword:</label>
+						<input name="keyword" id="keyword" type="text" class="form-control " value="" placeholder="">
+					</div>
+				</div>
+				<!-- End .box-body -->
+			</div> 
+		</form>
+	</section>
+	{% endblock %}
