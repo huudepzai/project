@@ -1,18 +1,37 @@
 body { background: #f8f9fa !important; }
 
-.container { margin-top: 20px; margin-bottom: 10px; }
+.containerfix { margin-top: 20px; margin-bottom: 10px; }
 
-.bg-color { background-color: #337ab7 !important; }
+.logo { background: #fff; text-align: center; display: flex; justify-content: center; }
+.logo img { height: 150px; width: auto; }
+
+.bg-color { background-color: #5ca8b5 !important; }
 
 .blockhome { background: #fff; margin-bottom: 10px; border-radius: 2px; border: 1px solid #ececec; padding: 10px; }
 
 .title { padding: 10px 0px; border-bottom: 1px solid #ececec; }
-.title h3 { font-size: 14px; color: #337ab7 !important; }
-.title h3 a { color: #337ab7 !important; }
+.title h3 { font-size: 14px; color: #5ca8b5 !important; }
+.title h3 a { color: #5ca8b5 !important; }
 .title h3 a:hover { color: red; }
 
 .navbar-light .navbar-nav .nav-link { color: #fff; font-size: 14px; }
 
 .navbar-light .navbar-nav .nav-link:hover { color: red; }
+
+.aboutme h2 { color: #5ca8b5 !important; font-size: 14px; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; margin-top: 10px; padding-bottom: 5px; border-bottom: 2px solid #bodercolor; text-align: center; }
+
+.titleh2 { color: #5ca8b5 !important; font-size: 14px; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; margin-top: 10px; padding-bottom: 5px; border-bottom: 2px solid #bodercolor; text-align: left; }
+
+.intro { text-align: justify; line-height: 20px; font-size: 14px; }
+
+footer ul { display: flex; justify-content: flex-start; padding: 0px; margin-bottom: 20px; }
+footer ul li { list-style: none; }
+footer ul li a { color: #fff; padding-right: 20px; }
+footer ul li a:hover { color: #5ca8b5 !important; }
+
+footer { background: #2a2730; color: #fff; padding-top: 50px; padding-bottom: 50px; line-height: 20px; }
+footer .info { margin-top: 10px; line-height: 25px; }
+
+.fa-search { color: #fff !important; }
 
 /*# sourceMappingURL=styles.css.map */

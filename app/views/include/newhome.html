@@ -1,0 +1,19 @@
+    <div class="blockhome">
+        <h2 class="titleh2">Danh sách bài viết</h2>
+        {% for item in data %}
+            <div class="row itemnew">
+                <div class="col-sm-4 col-md-3">
+                    <div class="thumbnail">
+                        <img src="./data/news/{{item.image}}" class="img-fluid" alt="{{item.titleclear}}">
+                    </div>
+                </div>  
+                <div class="col-sm-8 col-md-9">
+                 <div class="title">
+                    <h3>{{item.title}}</h3>
+                    <p> {% import "../macro/cutstring.html" as macrostring %}  {{ cutString(item.description,500) }}</p>
+                 </div>     
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="clearfix"></div>

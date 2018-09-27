@@ -23,6 +23,8 @@ var User = db.define('user', {
 }
 , {
   freezeTableName : true,
+  charset: 'utf8',
+  collate: 'utf8_unicode_ci'
 }
 )
 User.sync();

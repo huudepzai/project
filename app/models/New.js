@@ -36,20 +36,23 @@ var New = db.define('news', {
   }
 }
 , {
+  charset: 'utf8',
+  collate: 'utf8_unicode_ci',
   freezeTableName : true,
 }
 )
 New.sync();
 exports.add = function(params,callback) {  
-  let err,result,slug;
+  let err,result,alias;
   //kiem tra su ton tai cua slug neu ton tai thi them doi so 1,2,3...
-  New.count({ where: {'alias': params.alias} }).then(c  =>{
-   if(c>0) {
-    c = c+1;
-    alias = params.alias+'-'+c;
-  }else{
-    alias = params.alias;
-  }
+  // New.count({ where: {'alias': params.alias} }).then(c  =>{
+  //  if(c>0) {
+  //   c = c+1;
+  //   alias = params.alias+'-'+c;
+  // }else{
+  //   alias = params.alias;
+  // }
+  alias = params.alias;
   New.create({
     title: params.title,
     alias: alias,
@@ -66,12 +69,13 @@ exports.add = function(params,callback) {
    err = 'Có lỗi trong quá trình đăng ký hãy thử lại!';
    return callback(err,result);
  })
-})
+// })
 }
 
 exports.getList = function(callback) {  
   let err,result;
   New.findAll({
+    where:{type:'post'},
     order:[['id','DESC']]
   }).then(function (result) {
    return callback(err,result);

@@ -22,6 +22,8 @@ var Category = db.define('category', {
 }
 , {
   freezeTableName : true,
+  charset: 'utf8',
+  collate: 'utf8_unicode_ci'
 }
 )
 Category.sync();

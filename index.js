@@ -19,7 +19,9 @@ global.Sequelize = require('sequelize');
 global.db  = new Sequelize(process.env.DB_NAME,process.env.DB_USER, process.env.DB_PASS, {
 	host: process.env.DB_HOST,
 	port: process.env.DB_PORT,
-	dialect: process.env.SERECT,
+	charset: 'utf8',
+    collate: 'utf8_general_ci', 
+	dialect: 'postgres',
 	define: {
 		timestamps: false
 	},
@@ -27,6 +29,7 @@ global.db  = new Sequelize(process.env.DB_NAME,process.env.DB_USER, process.env.
 		ssl:false
 	}
 });
+
 db.authenticate()
 .then(()=>console.log('Kết nối thành công!'))
 .catch((err) => console.log(err.message))
@@ -41,7 +44,12 @@ app.use(function (req,res,next) {
 nunjucks.configure('app/views', {
 	autoescape: true,
 	express: app
-});
+})
+// .addGlobal('cutString', function(text,lenght) {
+// 	var trimmedString = text.substr(0, lenght);
+// 	trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")));
+// 	return trimmedString;
+// });
 
 //body-parser
 var bodyParser = require('body-parser');
@@ -51,4 +59,5 @@ var frontend = require('./routers/home');
 app.use('/',frontend);
 var admin = require('./routers/admin');
 app.use('/admin/',admin);
+console.log(process.env.DB_USER);
 app.listen(3000, () => console.log('connect!'));

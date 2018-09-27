@@ -1,0 +1,6 @@
+{% macro cutString(text, legth) %}
+{% set trimmedString = text.substr(0, lenght);
+	trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")));
+	return trimmedString;
+%}
+{% endmacro %}

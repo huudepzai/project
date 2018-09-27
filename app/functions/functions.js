@@ -1,4 +1,5 @@
 "use strict";
+const he = require('he');
 exports.dequy = function(list,parent=0){
 var newcategory = [];
 if(list){
@@ -32,4 +33,10 @@ str= str.replace(/!|@|\$|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\'| |\"|\&|\#|\
 str= str.replace(/-+-/g,"-"); 
 str= str.replace(/^\-+|\-+$/g,"");
 return str;
+}
+exports.cutString = function(text,lenght){
+	text = text.replace(/<(.|\n)*?>/g, '');
+	var newText = text.substr(0, lenght);
+	newText = newText.substr(0, Math.min(newText.length, newText.lastIndexOf(" ")));
+	return he.decode(newText);
 }
