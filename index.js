@@ -3,11 +3,12 @@ const app = express();
 const nunjucks = require('nunjucks');
 var flash = require('connect-flash');
 var session = require('express-session');
-
 require('dotenv').config();
+
 const config = require('./config.js');
 app.use(express.static('./public'));
 var huudepzai = require('./modules/huudepzai.js');
+
 app.use(session({
 	secret : process.env.SERECT,
 	saveUninitialized: true,
@@ -20,7 +21,7 @@ global.db  = new Sequelize(process.env.DB_NAME,process.env.DB_USER, process.env.
 	host: process.env.DB_HOST,
 	port: process.env.DB_PORT,
 	charset: 'utf8',
-    collate: 'utf8_general_ci', 
+	collate: 'utf8_general_ci', 
 	dialect: 'postgres',
 	define: {
 		timestamps: false
@@ -45,12 +46,18 @@ nunjucks.configure('app/views', {
 	autoescape: true,
 	express: app
 })
-// .addGlobal('cutString', function(text,lenght) {
-// 	var trimmedString = text.substr(0, lenght);
-// 	trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")));
-// 	return trimmedString;
-// });
 
+//bai viet moi
+var blog = require('./app/models/New.js');
+app.use(function (req,res,next) {
+	blog.geNewList((err,rs)=>{
+		if(rs){
+			
+			res.locals.newList = rs;
+		}
+	})
+	next()
+})
 //body-parser
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());

@@ -57,6 +57,16 @@
         </nav>
 
         <div id="page-wrapper">
+          <div class="row">
+            {% if messages %}
+            <div class="alert alert-success">
+              <i class="fa fa-check"></i>
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <strong>Thông điệp!</strong>
+              {{messages}}
+            </div>
+            {% endif %}
+          </div>
           {% block content %} 
           {% endblock %} 
         </div>

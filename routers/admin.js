@@ -4,6 +4,8 @@ var config = require('../config.js');
 var adminUrl = config.urlAdmin;
 var contronler = require('../app/controllers/index.js');
 var Member = require('../app/models/User.js');
+
+router.get('/', function (req,res) {res.redirect("/index")});
 router.get('/index',checkAuthenticated, contronler.admin.index);
 router.get('/register', contronler.admin.register);
 router.get('/login', contronler.admin.login);
@@ -13,6 +15,10 @@ router.get('/logout', function (req,res) {
 	req.flash('success_msg','You logged out');
 	res.redirect(adminUrl+'login');
 })
+
+router.get('/configweb',checkAuthenticated,contronler.admin.configWeb);
+router.post('/configweb',checkAuthenticated,contronler.admin.postConfigWeb);
+
 router.get('/category', contronler.admin.addCategory);
 router.post('/category', contronler.admin.updateCategory);
 

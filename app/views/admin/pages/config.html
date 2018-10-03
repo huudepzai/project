@@ -1,0 +1,33 @@
+{% extends "admin/pages/layout.html" %}
+{% block content %}
+<section class="content">
+<form name="configweb" id="configweb" method="post"  enctype="multipart/form-data" >
+	<div class="box">
+		<div class="box-body" id="button_task"> 
+			<div class="pull-right">
+				<a class="btn btn-app" href="javascript:void(0)" onclick="document.forms['configweb'].submit(); return false;" data-script="" data-field="">	
+					<i class="fa fa-database"></i> Lưu </a>
+				</div><!--end: .pull-right-->
+			</div><!--end: .box-body-->
+		</div><!--end: .box--><!-- HEAD -->
+		<div class="box box-default">	
+			<div class="form-group">	
+				<label>Title:</label>
+				<input type="text"  class="form-control" name="title">
+			</div>
+			<div class="form-group">	
+				<label>Logo:</label>
+				<input type="file" name="logo" />
+			</div>
+			<div class="form-group">	
+				<label>Description:</label>
+				<textarea name="description" class="form-control" id="" cols="30" rows="10"></textarea>
+			</div>
+			<div class="form-group">	
+				<label>Keyword:</label>
+				<textarea name="Keyword" class="form-control"   id="" cols="30" rows="10"></textarea>
+			</div>
+		</div>
+	</form>
+</section>
+{% endblock %}

@@ -10,10 +10,10 @@
 
 <div class="card" style="margin-top:10px">
   <h5 class="card-header">Bài viết mới</h5>
-  <div class="card-body">
+  <div class="card-body menusb">
     <ul>
-        {% for item in newPost %}
-            <li><h3><a>{{item.tile}}</a></h3></li>
+        {% for item in newList %}
+            <li><h3><a href="{{item.alias}}">{{item.title}}</a></h3></li>
         {% endfor %}
     </ul>
   </div>

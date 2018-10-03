@@ -36,4 +36,9 @@ footer .info { margin-top: 10px; line-height: 25px; }
 
 .description { text-align: justify; }
 
+.menusb ul { padding: 0px; margin: 0px; }
+.menusb ul li { line-height: 25px; list-style: none; }
+.menusb ul li h3 { font-size: 14px; font-weight: none; }
+.menusb ul li h3 a { color: #5ca8b5 !important; }
+
 /*# sourceMappingURL=styles.css.map */
