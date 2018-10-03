@@ -41,4 +41,6 @@ footer .info { margin-top: 10px; line-height: 25px; }
 .menusb ul li h3 { font-size: 14px; font-weight: none; }
 .menusb ul li h3 a { color: #5ca8b5 !important; }
 
+.itemnew .thumbnail { max-height: 180px; }
+
 /*# sourceMappingURL=styles.css.map */
